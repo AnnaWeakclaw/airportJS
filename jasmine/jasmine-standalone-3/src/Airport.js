@@ -7,5 +7,13 @@ Airport.prototype.land = function(plane){
 }
 
 Airport.prototype.takeOff = function(){
-  this.capacity.pop();
+  weather = new Weather();
+  console.log(weather.check());
+  if (weather.check() === 'stormy') {
+    console.log('the weather is bad');
+  }
+    else {
+    this.capacity.pop();
+    }
+    console.log(this.capacity);
 }

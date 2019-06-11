@@ -17,8 +17,19 @@ describe('Airport', function(){
         airport = new Airport();
         plane = new Plane();
         airport.land(plane);
+        	
+        testWeather = new Weather();
+        testWeather.check() = jasmine.createSpy("check() spy").andReturn("Sunny");
         airport.takeOff();
         expect(airport.capacity.length).toBe(0);
+      });
+
+      it('doesnt allow planes to take off if the weather is stormy', function(){
+        airport = new Airport();
+        plane = new Plane();
+        airport.land(plane);
+        airport.takeOff();
+        expect(airport.capacity.length).toBe(1);
       });
     });
 });
